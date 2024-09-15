@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
         const subscription = await stripe.subscriptions.retrieve(
           stripeObject.id
         );
-        const planId = subscription?.items?.data[0]?.price?.id;
+       // const planId = subscription?.items?.data[0]?.price?.id;
         // Do any operation here
         break;
       }

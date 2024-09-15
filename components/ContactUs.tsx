@@ -41,7 +41,7 @@ const ContactUs = () => {
         </div>
       </main>
     </div>
-    <Modal   isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalBody={modalBody} />
+    <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalBody={modalBody} />
     </>
   );
 };
