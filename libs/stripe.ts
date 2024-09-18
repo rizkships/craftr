@@ -41,34 +41,42 @@ export const createCheckout = async ({
     if (user?.customerId) {
       userParam.customer = user.customerId;
     } else {
-      userParam.customer_creation = "always";
 
       if (user?.email) {
         userParam.customer_email = user.email;
       }
     }
 
+    // Fetch the price to determine if it's a one-time or recurring payment 
+    const price = await stripe.prices.retrieve(priceId)
+    
+    
     const stripeSession = await stripe.checkout.sessions.create({
-      mode: "payment",
+      // dynamically set price type 
+      mode: price.type === 'one_time' ? 'payment' : 'subscription',
       ...userParam,
-      allow_promotion_codes: true,
-      invoice_creation: { enabled: true },
+//      allow_promotion_codes: true,
       tax_id_collection: { enabled: true },
       client_reference_id: clientReferenceId,
-      payment_intent_data: { setup_future_usage: "on_session" },
       line_items: [
         {
           price: priceId,
           quantity: 1,
         },
       ],
-      discounts: couponId
-        ? [
+      discounts: [
             {
-              coupon: couponId,
+              coupon: "tp4WaQQi",
             },
           ]
-        : [],
+        ,
+  //    discounts: couponId
+  //     ? [
+  //          {
+  //            coupon: couponId,
+  //          },
+  //        ]
+  //      : [],
       success_url: successUrl,
       cancel_url: cancelUrl,
     });
