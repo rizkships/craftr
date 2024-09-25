@@ -4,16 +4,18 @@ import TestimonialsAvatars from "./TestimonialsAvatars";
 import config from "@/config";
 import { signIn } from "next-auth/react";
 
+
+
 const Hero = () => {
   return (
     <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
       <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
         
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Land your dream tech job with our AI-powered resume builder.
+          Land your dream dev job
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          Craft a standout resume that gets past filters and grabs recruiters&apos; attention. Our AI, designed specifically for tech roles, helps you showcase the skills that matter and get hired faster.
+          Craft a standout resume that gets past filters and grabs recruiters&apos; attention. Our AI-powered resume builder, designed specifically for dev roles, helps you showcase the skills that matter and get hired faster.
         </p>
         <button className="btn btn-primary btn-wide" onClick={() => signIn()}>
           Get Resume

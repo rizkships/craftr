@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
 
-const font = Inter({ subsets: ["latin"] });
+// const font = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const font = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 // This adds default SEO tags to all pages in our app.
 // You can override them in each page passing params to getSOTags() function.
